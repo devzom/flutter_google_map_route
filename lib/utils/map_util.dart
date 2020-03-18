@@ -23,7 +23,8 @@ class MapUtil implements GpsUtilListener {
     mapView = new MapView();
     gpgUtils = new GpgUtils(this);
     gpgUtils.init();
-    staticMapProvider = new StaticMapProvider("google_map_key");
+    staticMapProvider =
+        new StaticMapProvider("AIzaSyDR1gHID1gHF5VGv5x8OCOI4HAg4sL5DJ4");
   }
 
   getDirectionSteps(double destinationLat, double destinationLng) {
@@ -36,7 +37,7 @@ class MapUtil implements GpsUtilListener {
             destinationLat.toString() +
             "," +
             destinationLng.toString() +
-            "&key=google_map_key")
+            "&key=AIzaSyDR1gHID1gHF5VGv5x8OCOI4HAg4sL5DJ4")
         .then((dynamic res) {
       List<Steps> rr = res;
       print(res.toString());
@@ -48,7 +49,8 @@ class MapUtil implements GpsUtilListener {
       }
 
       mapView.onMapReady.listen((_) {
-        mapView.setMarkers(getMarker(location.latitude,location.longitude,destinationLat,destinationLng));
+        mapView.setMarkers(getMarker(location.latitude, location.longitude,
+            destinationLat, destinationLng));
         mapView.addPolyline(new Polyline("12", ccc, width: 15.0));
       });
       _screenListener.dismissLoader();
@@ -56,11 +58,11 @@ class MapUtil implements GpsUtilListener {
     }).catchError((Exception error) => _screenListener.dismissLoader());
   }
 
-  List<Marker> getMarker(double scrLat,double scrLng,double desLat,double desLng) {
+  List<Marker> getMarker(
+      double scrLat, double scrLng, double desLat, double desLng) {
     List<Marker> markers = <Marker>[
       new Marker("1", "My Location", scrLat, scrLng, color: Colors.amber),
-      new Marker("2", "Destination", desLat, desLng,
-          color: Colors.red),
+      new Marker("2", "Destination", desLat, desLng, color: Colors.red),
     ];
 
     return markers;

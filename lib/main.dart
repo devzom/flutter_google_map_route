@@ -3,7 +3,7 @@ import 'package:flutter_google_map_route/map_screen.dart';
 import 'package:map_view/map_view.dart';
 
 void main() {
-  MapView.setApiKey("google_map_key");
+  MapView.setApiKey("AIzaSyDR1gHID1gHF5VGv5x8OCOI4HAg4sL5DJ4");
   runApp(new MaterialApp(
     debugShowCheckedModeBanner: false,
     theme: new ThemeData(

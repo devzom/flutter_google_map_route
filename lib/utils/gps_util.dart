@@ -21,14 +21,11 @@ class GpgUtils {
     initPlatformState();
 
     _locationSubscription =
-        _location.onLocationChanged().listen((Map<String,double> result) {
-
-          _currentLocation = result;
-          listener.onLocationChange(_currentLocation);
-        });
-
+        _locationSubscription = _location.onLocationChanged().listen((result) {
+      _currentLocation = result as Map<String, double>;
+      listener.onLocationChange(_currentLocation);
+    }) as StreamSubscription<Map<String, double>>;
   }
-
 
   // Platform messages are asynchronous, so we initialize in an async method.
   initPlatformState() async {
@@ -36,16 +33,16 @@ class GpgUtils {
     // Platform messages may fail, so we use a try/catch PlatformException.
 
     try {
-      _permission = await _location.hasPermission();
-      location = await _location.getLocation();
-
+      _permission = (await _location.hasPermission()) as bool;
+      location = (await _location.getLocation()) as Map<String, double>;
 
       error = null;
     } on PlatformException catch (e) {
       if (e.code == 'PERMISSION_DENIED') {
         error = 'Permission denied';
       } else if (e.code == 'PERMISSION_DENIED_NEVER_ASK') {
-        error = 'Permission denied - please ask the user to enable it from the app settings';
+        error =
+            'Permission denied - please ask the user to enable it from the app settings';
       }
 
       location = null;
@@ -54,7 +51,6 @@ class GpgUtils {
     _startLocation = location;
     listener.onLocationChange(_startLocation);
   }
-
 }
 
 abstract class GpsUtilListener {

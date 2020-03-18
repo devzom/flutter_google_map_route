@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_webservice/places.dart';
 
 class GooglePlacesAutocompleteWidget extends StatefulWidget {
-
   final String apiKey;
   final String hint;
   final Location location;
@@ -49,24 +48,23 @@ class _GooglePlacesAutocompleteOverlayState
   Widget build(BuildContext context) {
     final header = new Column(children: <Widget>[
       new Material(
-
           child: new Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              new IconButton(
-                color: Colors.black45,
-                icon: new Icon(Icons.arrow_back),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-              new Expanded(
-                  child: new Padding(
-                child: _textField(),
-                padding: const EdgeInsets.only(right: 8.0),
-              )),
-            ],
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          new IconButton(
+            color: Colors.black45,
+            icon: new Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+          new Expanded(
+              child: new Padding(
+            child: _textField(),
+            padding: const EdgeInsets.only(right: 8.0),
           )),
+        ],
+      )),
       new Divider(
           //height: 1.0,
           )
@@ -226,7 +224,8 @@ abstract class GooglePlacesAutocompleteState
   void initState() {
     super.initState();
     query = new TextEditingController(text: "");
-    _places = new GoogleMapsPlaces(widget.apiKey);
+    _places = new GoogleMapsPlaces();
+//    _places = new GoogleMapsPlaces('AIzaSyDR1gHID1gHF5VGv5x8OCOI4HAg4sL5DJ4');
     searching = false;
   }
 

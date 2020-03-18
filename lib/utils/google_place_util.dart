@@ -8,8 +8,7 @@ import 'package:google_maps_webservice/places.dart';
 class GooglePlaces {
   final homeScaffoldKey = new GlobalKey<ScaffoldState>();
   final searchScaffoldKey = new GlobalKey<ScaffoldState>();
-  GoogleMapsPlaces _places =
-      new GoogleMapsPlaces("google_map_key");
+  GoogleMapsPlaces _places = new GoogleMapsPlaces();
   Location location;
   GooglePlacesListener _mapScreenState;
 
