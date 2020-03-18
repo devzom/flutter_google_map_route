@@ -1,8 +1,9 @@
+import 'package:cirrus_map_view/location.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_google_map_route/progress_hud.dart';
 import 'package:flutter_google_map_route/utils/google_place_util.dart';
 import 'package:flutter_google_map_route/utils/map_util.dart';
-import 'package:map_view/map_view.dart';
+import 'package:cirrus_map_view/map_view.dart';
 
 class MapScreen extends StatefulWidget {
   @override

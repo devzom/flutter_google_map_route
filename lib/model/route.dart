@@ -1,8 +1,7 @@
-import 'package:map_view/location.dart';
+import 'package:cirrus_map_view/location.dart';
+import 'package:cirrus_map_view/map_view.dart';
 
 class Steps {
-
-
   Location startLocation;
 
   Location endLocation;

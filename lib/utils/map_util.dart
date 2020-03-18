@@ -1,10 +1,11 @@
+import 'package:cirrus_map_view/map_view.dart';
+import 'package:cirrus_map_view/polyline.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_google_map_route/utils/gps_util.dart';
 import 'package:flutter_google_map_route/map_screen.dart';
 import 'package:flutter_google_map_route/model/route.dart';
 import 'package:flutter_google_map_route/network/networ_util.dart';
-import 'package:map_view/map_view.dart';
-import 'package:map_view/polyline.dart';
+import 'package:cirrus_map_view/map_view.dart';
 
 class MapUtil implements GpsUtilListener {
   var staticMapProvider;
